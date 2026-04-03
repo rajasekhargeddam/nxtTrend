@@ -1,0 +1,16 @@
+.cart-list {
+  padding-left: 0px;
+}
+
+.remove-all-btn-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.remove-all-btn {
+  border: none;
+  background-color: transparent;
+  outline: none;
+  color: #0b69ff;
+  cursor: pointer;
+}

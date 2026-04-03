@@ -1,0 +1,30 @@
+/* Write your CSS here */
+.summary-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.summary {
+  display: flex;
+  flex-direction: column;
+}
+
+.summary-total {
+  margin: 0;
+}
+
+.summary-total-text {
+  color: #171f46;
+  margin: 0;
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.summary-items-count {
+  font-size: 14px;
+}
+
+.summary-btn {
+  font-size: 16px;
+  font-family: 'Times New Roman', Times, serif;
+}
