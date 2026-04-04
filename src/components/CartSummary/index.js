@@ -1,7 +1,7 @@
 // Write your code here
 import './index.css'
 
-const CartSummary = ({cartList}) => {
+const CartSummary = ({cartList, onCheckoutClick}) => {
   const totalCartAmount = cartList.reduce(
     (total, item) => total + item.price * item.quantity,
     0,
@@ -15,7 +15,11 @@ const CartSummary = ({cartList}) => {
           <span className="summary-total-text">Rs {totalCartAmount}/-</span>
         </h1>
         <p className="summary-items-count">{cartList.length} items in cart</p>
-        <button type="button" className="logout-desktop-btn summary-btn">
+        <button
+          type="button"
+          className="logout-desktop-btn summary-btn"
+          onClick={onCheckoutClick}
+        >
           Checkout
         </button>
       </div>

@@ -1,0 +1,319 @@
+.payment-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  background-color: rgba(23, 31, 70, 0.55);
+  backdrop-filter: blur(4px);
+  animation: payment-modal-fade-in 0.2s ease-out;
+}
+
+@keyframes payment-modal-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.payment-modal-dialog {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+  max-height: min(90vh, 640px);
+  overflow-y: auto;
+  padding: 28px 24px 24px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow:
+    0 24px 48px rgba(15, 23, 42, 0.18),
+    0 0 0 1px rgba(62, 76, 89, 0.08);
+  animation: payment-modal-slide-up 0.25s ease-out;
+}
+
+@keyframes payment-modal-slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.payment-modal-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  color: #64748b;
+  font-size: 24px;
+  line-height: 1;
+  cursor: pointer;
+  transition:
+    background-color 0.15s ease,
+    color 0.15s ease;
+}
+
+.payment-modal-close:hover {
+  background-color: #f1f5f9;
+  color: #171f46;
+}
+
+.payment-modal-title {
+  margin: 0 32px 8px 0;
+  color: #3e4c59;
+  font-family: 'Roboto', sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.payment-modal-subtitle {
+  margin: 0 0 20px;
+  color: #7b8794;
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.payment-modal-summary {
+  margin-bottom: 22px;
+  padding: 16px 18px;
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  border-radius: 10px;
+  border: 1px solid #e2e8f0;
+}
+
+.payment-modal-summary-heading {
+  margin: 0 0 12px;
+  color: #171f46;
+  font-family: 'Roboto', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.payment-modal-summary-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 0;
+  color: #52606d;
+  font-family: 'Roboto', sans-serif;
+  font-size: 15px;
+}
+
+.payment-modal-summary-total {
+  margin-top: 4px;
+  padding-top: 12px;
+  border-top: 1px dashed #cbd5e1;
+  color: #171f46;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.payment-modal-summary-value {
+  color: #0b69ff;
+  font-weight: 600;
+}
+
+.payment-modal-methods {
+  margin: 0 0 22px;
+  padding: 0;
+  border: none;
+}
+
+.payment-modal-methods-legend {
+  padding: 0;
+  margin-bottom: 12px;
+  color: #171f46;
+  font-family: 'Roboto', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.payment-modal-methods-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.payment-modal-method-item {
+  margin-bottom: 8px;
+}
+
+.payment-modal-method-item:last-child {
+  margin-bottom: 0;
+}
+
+.payment-modal-method-label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  border-radius: 8px;
+  border: 2px solid #e2e8f0;
+  background: #ffffff;
+  cursor: pointer;
+  transition:
+    border-color 0.15s ease,
+    background-color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.payment-modal-method-label:hover:not(.payment-modal-method-label--disabled) {
+  border-color: #0b69ff;
+  box-shadow: 0 0 0 3px rgba(11, 105, 255, 0.12);
+}
+
+.payment-modal-method-label--selected {
+  border-color: #0b69ff;
+  background: #f0f7ff;
+}
+
+.payment-modal-method-label--disabled {
+  cursor: not-allowed;
+  opacity: 0.65;
+  background: #f8fafc;
+}
+
+.payment-modal-method-input {
+  width: 18px;
+  height: 18px;
+  accent-color: #0b69ff;
+  flex-shrink: 0;
+}
+
+.payment-method-name {
+  flex: 1;
+  font-family: 'Roboto', sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  color: #171f46;
+}
+
+.payment-method-unavailable {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #94a3b8;
+}
+
+.payment-modal-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+.payment-modal-btn {
+  min-height: 44px;
+  padding: 0 20px;
+  border-radius: 8px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition:
+    background-color 0.15s ease,
+    color 0.15s ease,
+    opacity 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.payment-modal-btn--secondary {
+  background: #f1f5f9;
+  color: #475569;
+}
+
+.payment-modal-btn--secondary:hover {
+  background: #e2e8f0;
+}
+
+.payment-modal-btn--primary {
+  background: #0b69ff;
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(11, 105, 255, 0.35);
+}
+
+.payment-modal-btn--primary:hover:not(:disabled) {
+  background: #0958d9;
+}
+
+.payment-modal-btn--primary:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.payment-modal-btn--full {
+  width: 100%;
+  margin-top: 8px;
+}
+
+.payment-modal-success {
+  text-align: center;
+  padding: 12px 8px 4px;
+}
+
+.payment-modal-success-icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #22c55e, #16a34a);
+  color: #ffffff;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1;
+  box-shadow: 0 8px 24px rgba(34, 197, 94, 0.35);
+}
+
+.payment-modal-success-title {
+  margin: 0 0 10px;
+  color: #3e4c59;
+  font-family: 'Roboto', sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.payment-modal-success-message {
+  margin: 0 0 24px;
+  color: #52606d;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+@media screen and (min-width: 768px) {
+  .payment-modal-dialog {
+    padding: 32px 28px 28px;
+  }
+
+  .payment-modal-title {
+    font-size: 24px;
+  }
+}
